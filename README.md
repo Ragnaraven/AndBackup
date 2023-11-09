@@ -1,4 +1,3 @@
-
 # AndBackup
 
 AndBackup is a Node.js-based backup utility that automates the process of backing up a specified source directory to a designated backup location. It supports both short-term (frequent) and long-term (less frequent) backup intervals.
@@ -12,10 +11,11 @@ AndBackup is a Node.js-based backup utility that automates the process of backin
 
 ## Prerequisites
 
-- Node.js
-- npm (Node Package Manager)
+- None, if you are using the precompiled executable file.
 
 ## Installation
+
+### Using the Node.js Script
 
 1. Clone the repository or download the source code to your local machine.
 
@@ -30,7 +30,15 @@ AndBackup is a Node.js-based backup utility that automates the process of backin
     npm install
     ```
 
+### Using the Executable
+
+1. Download the `andbackup.exe` file from the releases section in the GitHub repository.
+
+2. Place the `andbackup.exe` file in a directory that is included in your system's PATH, or navigate to the directory where the `andbackup.exe` file is located to run it.
+
 ## Usage
+
+### Using the Node.js Script
 
 To start the backup process, run the `andbackup.js` script with the required parameters:
 
@@ -38,27 +46,19 @@ To start the backup process, run the `andbackup.js` script with the required par
 node andbackup.js --source "path/to/source" --longTermInterval "cron pattern" --longTermMax number_of_backups
 ```
 
-### Parameters
+### Using the Executable
 
-- `--source`: The source directory you wish to back up.
-- `--longTermInterval`: The cron pattern to define the long-term backup interval.
-- `--longTermMax`: The maximum number of long-term backups to retain.
-- `--shortTermInterval` (optional): The cron pattern to define the short-term backup interval.
-- `--shortTermMax` (optional): The maximum number of short-term backups to retain.
+Simply execute the `andbackup.exe` file from the command line with the required parameters:
 
-### Examples
+```sh
+andbackup.exe --source "path/to/source" --longTermInterval "cron pattern" --longTermMax number_of_backups
+```
 
-- To perform a long-term backup every hour, keeping a maximum of 24 backups:
+For example:
 
-    ```sh
-    node andbackup.js --source "path/to/source" --longTermInterval "0 * * * *" --longTermMax 24
-    ```
-
-- To perform a short-term backup every 15 seconds, keeping the last 4 backups, and a long-term backup every day at midnight, keeping the last 7 backups:
-
-    ```sh
-    node andbackup.js --source "path/to/source" --shortTermInterval "*/15 * * * * *" --shortTermMax 4 --longTermInterval "0 0 * * *" --longTermMax 7
-    ```
+```sh
+andbackup.exe --source "C:/path/to/source" --longTermInterval "0 * * * *" --longTermMax 24
+```
 
 ## Cron Pattern
 
@@ -81,7 +81,7 @@ A lock file (`backup.lock`) is created in the long-term backup directory to prev
 
 ## Stopping the Backup Service
 
-To stop the backup service, send a `SIGINT` signal by pressing `Ctrl+C` in the terminal where the service is running.
+To stop the backup service, send a SIGINT signal by pressing Ctrl+C in the terminal where the service is running.
 
 ## Contributing
 
@@ -89,4 +89,4 @@ Contributions to AndBackup are welcome! Please read our contributing guidelines 
 
 ## License
 
-AndBackup is released under the [MIT License](LICENSE).
+AndBackup is released under the MIT License.
